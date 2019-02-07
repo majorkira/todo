@@ -3,6 +3,7 @@
 <head>
 	<title>Javascript + DOM</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 <body>
 	<h1>Shopping List</h1>
@@ -10,12 +11,11 @@
 	<input id="userinput" type="text" placeholder="enter items">
 	<button id="enter">Enter</button>
 	<ul>
-		<li class="bold red" random="23">Notebook</li>
-		<li>Jello</li>
-		<li>Spinach</li>
-		<li>Rice</li>
-		<li>Birthday Cake</li>
-		<li>Candles</li>
+		<li><span class="trash"><i class='fas fa-trash-alt'></i></span> <span class="listItem" data-id="0">Jello</span></li>
+		<li><span class="trash"><i class='fas fa-trash-alt'></i></span> <span class="listItem" data-id="1">Spinach</span></li>
+		<li><span class="trash"><i class='fas fa-trash-alt'></i></span> <span class="listItem" data-id="2">Rice</span></li>
+		<li><span class="trash"><i class='fas fa-trash-alt'></i></span> <span class="listItem" data-id="3">Birthday Cake</span></li>
+		<li><span class="trash"><i class='fas fa-trash-alt'></i></span> <span class="listItem" data-id="4">Candles</span></li>
 	</ul>
 	<script type="text/javascript" src="script.js"></script>
 </body>

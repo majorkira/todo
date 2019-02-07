@@ -21,3 +21,6 @@
 .done {
   text-decoration: line-through;
 }
+.trash {
+  content: "<i class="fas fa-trash-alt"></i> ";
+}

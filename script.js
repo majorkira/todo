@@ -1,7 +1,8 @@
 var button = document.getElementById("enter");
 var input = document.getElementById("userinput");
 var ul = document.querySelector("ul");
-
+var trash = document.querySelectorAll("trash");
+var counter = 4;
 function inputLength() {
 	return input.value.length;
 }
@@ -11,6 +12,8 @@ function createListElement() {
 	li.appendChild(document.createTextNode(input.value));
 	ul.appendChild(li);
 	input.value = "";
+
+	li.dataset.id = counter + 1;
 }
 
 function addListAfterClick() {
@@ -30,12 +33,15 @@ button.addEventListener("click", addListAfterClick);
 input.addEventListener("keypress", addListAfterKeypress);
 
 ul.addEventListener("click", function(event) {
-		console.log(ul);
-		let list = document.querySelectorAll('li');
+		let list = document.querySelectorAll('.listItem');
 	for (let i=0; i < list.length; i++) {
 		if (event.target.dataset.id === list[i].dataset.id) {
-			console.log(i);
-			event.target.classList.toggle("done");
-		}
-	}
+			if (event.target.classList.contains("done")) {
+				event.target.classList.remove("done");
+			} else {
+				console.log(i);
+				event.target.classList.add("done");
+			};
+		};
+	};
 });
