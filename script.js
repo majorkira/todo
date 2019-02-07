@@ -1,7 +1,7 @@
 var button = document.getElementById("enter");
 var input = document.getElementById("userinput");
 var ul = document.querySelector("ul");
-var trash = document.querySelectorAll("trash");
+const deleteButton = document.getElementsByTagName("i");
 var counter = 4;
 function inputLength() {
 	return input.value.length;
@@ -9,11 +9,18 @@ function inputLength() {
 
 function createListElement() {
 	var li = document.createElement("li");
-	li.appendChild(document.createTextNode(input.value));
+	var span = document.createElement("span");
+	span.appendChild(document.createTextNode(input.value));
+	li.appendChild(span);
 	ul.appendChild(li);
 	input.value = "";
-
-	li.dataset.id = counter + 1;
+	span.dataset.id = counter + 1;
+	span.className += "listItem";
+	var span2 = document.createElement("span");
+	span2.className="trash";
+	span2.innerHTML="<i class='fas fa-trash-alt'></i> ";
+	li.insertBefore(span2, span);
+	deleteParentOnClick();
 }
 
 function addListAfterClick() {
@@ -39,9 +46,21 @@ ul.addEventListener("click", function(event) {
 			if (event.target.classList.contains("done")) {
 				event.target.classList.remove("done");
 			} else {
-				console.log(i);
 				event.target.classList.add("done");
 			};
 		};
 	};
 });
+
+function deleteNodeOnClick() {
+	var trash = document.querySelectorAll("i");
+	for (let i=0; i < trash.length; i++) {
+			this.parentNode.parentNode.remove();
+	}
+}
+function deleteParentOnClick() {
+	for (let i=0; i < deleteButton.length; i++) {
+		deleteButton[i].addEventListener("click", deleteNodeOnClick);
+	}
+}
+deleteParentOnClick();
