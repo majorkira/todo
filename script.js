@@ -28,3 +28,14 @@ function addListAfterKeypress(event) {
 button.addEventListener("click", addListAfterClick);
 
 input.addEventListener("keypress", addListAfterKeypress);
+
+ul.addEventListener("click", function(event) {
+		console.log(ul);
+		let list = document.querySelectorAll('li');
+	for (let i=0; i < list.length; i++) {
+		if (event.target.dataset.id === list[i].dataset.id) {
+			console.log(i);
+			event.target.classList.toggle("done");
+		}
+	}
+});
